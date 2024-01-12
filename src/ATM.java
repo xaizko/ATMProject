@@ -29,6 +29,6 @@ public class ATM {
         customer = new Customer(name, pin);
         saving = new Account(customer, true);
         checking = new Account(customer, false);
-        System.out.println("Account created!");
+        System.out.println(" Account created!");
     }
 }
