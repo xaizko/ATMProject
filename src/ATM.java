@@ -29,6 +29,25 @@ public class ATM {
         customer = new Customer(name, pin);
         saving = new Account(customer, true);
         checking = new Account(customer, false);
-        System.out.println(" Account created!");
+        System.out.println(" Account created!\n");
+
+        //menu
+        int input = 0;
+        while (input != 7) {
+            System.out.print("What action would you like to preform?\n" +
+                    "1. Withdraw money\n" +
+                    "2. Deposit money\n" +
+                    "3. Transfer money between accounts\n" +
+                    "4. Get account balances\n" +
+                    "5. Get transaction history\n" +
+                    "6. Change PIN\n" +
+                    "7. Exit\n");
+            try {
+                input = scan.nextInt();
+            } catch (Exception e) {
+                System.out.println("That is not an option, try again!");
+                scan.nextLine();
+            }
+        }
     }
 }
