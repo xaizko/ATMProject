@@ -13,7 +13,16 @@ public class ATM {
         System.out.print("Name: ");
         String name = scan.nextLine();
         System.out.print("Pin: ");
-        int pin = scan.nextInt();
+        int pin = 0;
+
+        try {
+            pin = scan.nextInt();
+        } catch (Exception e) {
+            System.out.println("Not a valid pin! Try again.");
+            scan.nextLine();
+            System.out.print("Enter a pin: ");
+            scan.nextInt();
+        }
 
         //object creation
         System.out.print("Creating account");
@@ -44,9 +53,14 @@ public class ATM {
                     "7. Exit\n");
             try {
                 input = scan.nextInt();
+                if (input < 1 || input > 7) {
+                    System.out.println("Not a valid option, try again!");
+                    input = scan.nextInt();
+                }
             } catch (Exception e) {
                 System.out.println("That is not an option, try again!");
                 scan.nextLine();
+                input = scan.nextInt();
             }
         }
     }
