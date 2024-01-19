@@ -43,6 +43,7 @@ public class ATM {
         //menu
         int input = 0;
         while (input != 7) {
+            int acc = 0;
             System.out.print("What action would you like to preform?\n" +
                     "1. Withdraw money\n" +
                     "2. Deposit money\n" +
@@ -61,6 +62,35 @@ public class ATM {
                 System.out.println("That is not an option, try again!");
                 scan.nextLine();
                 input = scan.nextInt();
+            }
+
+            //choice
+            if (input == 1) {
+                System.out.print("Please enter your pin: ");
+                int temp = scan.nextInt();
+                if (temp == customer.getPin()) {
+                    System.out.print("Please enter 1 for checking and 2 for savings: ");
+                    acc = scan.nextInt();
+                    if (acc == 1) {
+                        System.out.println("How much would you like to withdraw? (Please enter amount dispensable in 5's and 20's)");
+                        int amount = scan.nextInt();
+                        if (((amount % 5) == 0)){
+                            checking.withdraw(amount);
+                        } else {
+                            System.out.println("Error: Indispensable Amount\nTransaction Failed");
+                        }
+                    } else if (acc == 2) {
+                        System.out.println("How much would you like to withdraw? (Please enter amount dispensable in 5's and 20's)");
+                        int amount = scan.nextInt();
+                        if (((amount % 5) == 0)){
+                            saving.withdraw(amount);
+                        } else {
+                            System.out.println("Error: Indispensable Amount\nTransaction Failed");
+                        }
+                    } else {
+                        System.out.println("Error: Invalid Choice\nTransaction failed");
+                    }
+                }
             }
         }
     }

@@ -7,6 +7,10 @@ public class Customer {
         this.pin = pin;
     }
 
+    public int getPin() {
+        return pin;
+    }
+
     public String getName() {
         return name;
     }
@@ -15,3 +19,4 @@ public class Customer {
         this.pin = pin;
     }
 }
+

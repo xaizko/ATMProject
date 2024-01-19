@@ -9,4 +9,12 @@ public class Account {
         this.owner = owner;
         saving = type;
     }
+
+    public void withdraw(int amount) {
+        if (amount > balance) {
+            System.out.println("Error: Insufficient Funds\nWithdraw Unsuccessful");
+        } else {
+
+        }
+    }
 }
