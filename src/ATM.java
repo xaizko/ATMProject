@@ -66,18 +66,18 @@ public class ATM {
 
             //choice
             if (input == 1) {
-                System.out.print("Please enter your pin: ");
+                System.out.print("\nPlease enter your pin: ");
                 int temp = scan.nextInt();
                 if (temp == customer.getPin()) {
                     System.out.print("Please enter 1 for checking and 2 for savings: ");
                     acc = scan.nextInt();
                     if (acc == 1) {
-                        System.out.println("How much would you like to withdraw? (Please enter amount dispensable in 5's and 20's)");
+                        System.out.print("How much would you like to withdraw? (Please enter amount dispensable in 5's and 20's): ");
                         int amount = scan.nextInt();
                         if (((amount % 5) == 0)){
                             checking.withdraw(amount);
                         } else {
-                            System.out.println("Error: Indispensable Amount\nTransaction Failed");
+                            System.out.println("Error: Indispensable Amount\nTransaction Failed\n");
                         }
                     } else if (acc == 2) {
                         System.out.println("How much would you like to withdraw? (Please enter amount dispensable in 5's and 20's)");
@@ -85,11 +85,13 @@ public class ATM {
                         if (((amount % 5) == 0)){
                             saving.withdraw(amount);
                         } else {
-                            System.out.println("Error: Indispensable Amount\nTransaction Failed");
+                            System.out.println("Error: Indispensable Amount\nTransaction Failed\n");
                         }
                     } else {
                         System.out.println("Error: Invalid Choice\nTransaction failed");
                     }
+                } else {
+                    System.out.println("Error: Incorrect Pin\n");
                 }
             }
         }
