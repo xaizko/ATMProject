@@ -5,7 +5,7 @@ public class Account {
     private static int id = 0;
 
     public Account(Customer owner, boolean type) {
-        balance = 500;
+        balance = 0;
         this.owner = owner;
         saving = type;
     }
@@ -20,13 +20,13 @@ public class Account {
                 for (int i = 1; i <= 3; i++) {
                     System.out.print(".");
                     try {
-                        Thread.sleep(1000);  // 2000 milliseconds, or 2 seconds
+                        Thread.sleep(1000);
                     } catch (Exception e) {
                         System.out.println("error");
                     }
 
                 }
-                System.out.println("\nWithdraw Successful!\n");
+                System.out.println("\nWithdrawed $" + amount + " successfully!\n");
             } else {
                 int five = (amount - (twenty * 20)) / 5;
                 System.out.print("Withdrawing " + twenty + " twenty's and " + five+ " five's");
@@ -38,7 +38,7 @@ public class Account {
                         System.out.println("error");
                     }
                 }
-                System.out.println("\nWithdraw Successful!\n");
+                System.out.println("\nWithdrawal of $" + amount + " successful!\nCurrent balance: " + balance + "\nTransaction ID: ");
             }
         }
     }

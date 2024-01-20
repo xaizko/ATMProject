@@ -4,6 +4,8 @@ public class ATM {
     Customer customer;
     Account saving;
     Account checking;
+    TransactionHistory history;
+
     public ATM() {
         scan = new Scanner(System.in);
     }
@@ -29,7 +31,7 @@ public class ATM {
         for (int i = 1; i <= 3; i++) {
             System.out.print(".");
             try {
-                Thread.sleep(1000);  // 2000 milliseconds, or 2 seconds
+                Thread.sleep(1000);
             } catch (Exception e) {
                 System.out.println("error");
             }
@@ -38,6 +40,7 @@ public class ATM {
         customer = new Customer(name, pin);
         saving = new Account(customer, true);
         checking = new Account(customer, false);
+        history =  new TransactionHistory();
         System.out.println(" Account created!\n");
 
         //menu

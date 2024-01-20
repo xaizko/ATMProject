@@ -9,4 +9,14 @@ public class TransactionHistory {
         idB = 0;
         transactions = new ArrayList<>();
     }
+
+    public void addTransaction(String actionA) {
+        transactions.add(actionA);
+        idA++;
+    }
+
+    public void addTransactionB(String actionS) {
+        transactions.add(actionS);
+        idB++;
+    }
 }
