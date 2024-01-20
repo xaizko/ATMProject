@@ -1,18 +1,23 @@
 public class Account {
     Customer owner;
-    int balance;
+    double balance;
     boolean saving;
     private static int id = 0;
 
     public Account(Customer owner, boolean type) {
-        balance = 0;
+        balance = 500;
         this.owner = owner;
         saving = type;
     }
 
-    public void withdraw(int amount) {
+    public double getBalance() {
+        return balance;
+    }
+
+    public boolean withdraw(int amount) {
         if (amount > balance) {
             System.out.println("Error: Insufficient Funds\nWithdraw Unsuccessful\n");
+            return false;
         } else {
             int twenty = amount / 20;
             if (amount % 20 == 0) {
@@ -26,7 +31,10 @@ public class Account {
                     }
 
                 }
-                System.out.println("\nWithdrawed $" + amount + " successfully!\n");
+                balance -= amount;
+                System.out.println("\n\n-----Receipt-----");
+                System.out.println("Withdrawal of $" + amount + " successful!\nCurrent balance: $"+ balance);
+                System.out.println("-----------------\n");
             } else {
                 int five = (amount - (twenty * 20)) / 5;
                 System.out.print("Withdrawing " + twenty + " twenty's and " + five+ " five's");
@@ -38,8 +46,12 @@ public class Account {
                         System.out.println("error");
                     }
                 }
-                System.out.println("\nWithdrawal of $" + amount + " successful!\nCurrent balance: " + balance + "\nTransaction ID: ");
+                balance -= amount;
+                System.out.println("\n\n-----Receipt-----");
+                System.out.println("Withdrawal of $" + amount + " successful!\nCurrent balance: $" + balance);
+                System.out.println("-----------------\n");
             }
+            return true;
         }
     }
 }

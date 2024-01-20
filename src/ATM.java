@@ -67,7 +67,7 @@ public class ATM {
                 input = scan.nextInt();
             }
 
-            //choice
+            //withdraw
             if (input == 1) {
                 System.out.print("\nPlease enter your pin: ");
                 int temp = scan.nextInt();
@@ -78,20 +78,30 @@ public class ATM {
                         System.out.print("How much would you like to withdraw? (Please enter amount dispensable in 5's and 20's): ");
                         int amount = scan.nextInt();
                         if (((amount % 5) == 0)){
-                            checking.withdraw(amount);
+                            if (checking.withdraw(amount)) {
+                                history.addTransaction("Withdraw of $" + amount + ": successful\nBalance: " + checking.getBalance());
+                            } else {
+                                history.addTransaction("Withdraw of $" + amount + ": unsuccessful\nBalance: " + checking.getBalance());
+                            }
                         } else {
                             System.out.println("Error: Indispensable Amount\nTransaction Failed\n");
+                            history.addTransaction("Withdraw of $" + amount + ": unsuccessful\nBalance: " + checking.getBalance());
                         }
                     } else if (acc == 2) {
                         System.out.println("How much would you like to withdraw? (Please enter amount dispensable in 5's and 20's)");
                         int amount = scan.nextInt();
                         if (((amount % 5) == 0)){
-                            saving.withdraw(amount);
+                            if (saving.withdraw(amount)) {
+                                history.addTransaction("Withdraw of $" + amount + ": successful\nBalance: " + saving.getBalance());
+                            } else {
+                                history.addTransaction("Withdraw of $" + amount + ": unsuccessful\nBalance: " + saving.getBalance());
+                            }
                         } else {
                             System.out.println("Error: Indispensable Amount\nTransaction Failed\n");
+                            history.addTransaction("Withdraw of $" + amount + ": unsuccessful\nBalance: " + checking.getBalance());
                         }
                     } else {
-                        System.out.println("Error: Invalid Choice\nTransaction failed");
+                        System.out.println("Error: Invalid Choice\nTransaction failed\n");
                     }
                 } else {
                     System.out.println("Error: Incorrect Pin\n");
