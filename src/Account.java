@@ -4,7 +4,7 @@ public class Account {
     boolean saving;
 
     public Account(Customer owner, boolean type) {
-        balance = 500;
+        balance = 0;
         this.owner = owner;
         saving = type;
     }
