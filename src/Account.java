@@ -2,7 +2,6 @@ public class Account {
     Customer owner;
     double balance;
     boolean saving;
-    private static int id = 0;
 
     public Account(Customer owner, boolean type) {
         balance = 500;
@@ -12,6 +11,14 @@ public class Account {
 
     public double getBalance() {
         return balance;
+    }
+
+    public void addBalance(double amount) {
+        balance += amount;
+    }
+
+    public void minusBalance(double amount) {
+        balance -= amount;
     }
 
     public boolean withdraw(int amount) {
@@ -32,9 +39,6 @@ public class Account {
 
                 }
                 balance -= amount;
-                System.out.println("\n\n-----Receipt-----");
-                System.out.println("Withdrawal of $" + amount + " successful!\nCurrent balance: $"+ balance);
-                System.out.println("-----------------\n");
             } else {
                 int five = (amount - (twenty * 20)) / 5;
                 System.out.print("Withdrawing " + twenty + " twenty's and " + five+ " five's");
@@ -47,11 +51,31 @@ public class Account {
                     }
                 }
                 balance -= amount;
-                System.out.println("\n\n-----Receipt-----");
-                System.out.println("Withdrawal of $" + amount + " successful!\nCurrent balance: $" + balance);
-                System.out.println("-----------------\n");
             }
             return true;
+        }
+    }
+
+    public void deposit(double amount) {
+        balance += amount;
+        System.out.print("Depositing $" + amount);
+        for (int i = 1; i <= 3; i++) {
+            System.out.print(".");
+            try {
+                Thread.sleep(1000);
+            } catch (Exception e) {
+                System.out.println("error");
+            }
+        }
+    }
+
+    public boolean transfer(double amount, Account acc) {
+        if (acc.getBalance() >= amount) {
+            acc.minusBalance(amount);
+            this.addBalance(amount);
+            return true;
+        } else {
+            return false;
         }
     }
 }

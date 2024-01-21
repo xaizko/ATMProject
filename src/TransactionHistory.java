@@ -3,11 +3,16 @@ import java.util.List;
 public class TransactionHistory {
     int idA;
     int idB;
+    String prevTrans;
     ArrayList<String> transactions;
     public TransactionHistory() {
         idA = 1;
         idB = 1;
         transactions = new ArrayList<>();
+    }
+
+    public String getID() {
+        return prevTrans.substring(prevTrans.length()-21);
     }
 
     public void addTransaction(String actionA) {
@@ -22,6 +27,7 @@ public class TransactionHistory {
             temp = actionA + "\nTransaction ID: A" + idA;
         }
         transactions.add(temp);
+        prevTrans = temp;
         idA++;
     }
 
@@ -37,6 +43,7 @@ public class TransactionHistory {
             temp = actionS + "\nTransaction ID: S" + idB;
         }
         transactions.add(temp);
+        prevTrans = temp;
         idB++;
 
     }

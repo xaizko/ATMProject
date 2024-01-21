@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="32415b33-520d-4aeb-9fe4-338f5fe614d4" name="Changes" comment="working on input 1 and transaction history">
+    <list default="true" id="32415b33-520d-4aeb-9fe4-338f5fe614d4" name="Changes" comment="finished input 1 and transaction history">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/ATM.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ATM.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Account.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Account.java" afterDir="false" />
@@ -66,7 +66,7 @@
       <updated>1705065716932</updated>
       <workItem from="1705728514677" duration="705000" />
       <workItem from="1705762759379" duration="6494000" />
-      <workItem from="1705784807273" duration="2182000" />
+      <workItem from="1705784807273" duration="12828000" />
     </task>
     <task id="LOCAL-00001" summary="almost done with setup">
       <created>1705068245309</created>
@@ -97,7 +97,15 @@
       <option name="project" value="LOCAL" />
       <updated>1705769847021</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="finished input 1 and transaction history">
+      <option name="closed" value="true" />
+      <created>1705787010131</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1705787010131</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -106,6 +114,7 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="almost done with setup" />
     <MESSAGE value="working on input 1 and transaction history" />
-    <option name="LAST_COMMIT_MESSAGE" value="working on input 1 and transaction history" />
+    <MESSAGE value="finished input 1 and transaction history" />
+    <option name="LAST_COMMIT_MESSAGE" value="finished input 1 and transaction history" />
   </component>
 </project>
