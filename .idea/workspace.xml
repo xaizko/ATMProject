@@ -4,11 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="32415b33-520d-4aeb-9fe4-338f5fe614d4" name="Changes" comment="finished input 1 and transaction history">
+    <list default="true" id="32415b33-520d-4aeb-9fe4-338f5fe614d4" name="Changes" comment="finished, need to add decoration">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/ATM.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ATM.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Account.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Account.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/TransactionHistory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/TransactionHistory.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -66,7 +64,9 @@
       <updated>1705065716932</updated>
       <workItem from="1705728514677" duration="705000" />
       <workItem from="1705762759379" duration="6494000" />
-      <workItem from="1705784807273" duration="12828000" />
+      <workItem from="1705784807273" duration="13363000" />
+      <workItem from="1705811193595" duration="114000" />
+      <workItem from="1705811332146" duration="1249000" />
     </task>
     <task id="LOCAL-00001" summary="almost done with setup">
       <created>1705068245309</created>
@@ -105,7 +105,15 @@
       <option name="project" value="LOCAL" />
       <updated>1705787010131</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="finished, need to add decoration">
+      <option name="closed" value="true" />
+      <created>1705810809022</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1705810809022</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -115,6 +123,7 @@
     <MESSAGE value="almost done with setup" />
     <MESSAGE value="working on input 1 and transaction history" />
     <MESSAGE value="finished input 1 and transaction history" />
-    <option name="LAST_COMMIT_MESSAGE" value="finished input 1 and transaction history" />
+    <MESSAGE value="finished, need to add decoration" />
+    <option name="LAST_COMMIT_MESSAGE" value="finished, need to add decoration" />
   </component>
 </project>

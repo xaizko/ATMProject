@@ -1,3 +1,4 @@
+import java.io.Console;
 import java.util.Scanner;
 public class ATM {
     Scanner scan;
@@ -20,7 +21,7 @@ public class ATM {
         try {
             pin = scan.nextInt();
         } catch (Exception e) {
-            System.out.println("Not a valid pin! Try again.");
+            System.out.println(ConsoleUtility.RED + "Not a valid pin! Try again." + ConsoleUtility.RESET);
             scan.nextLine();
             System.out.print("Enter a pin: ");
             scan.nextInt();
@@ -58,11 +59,11 @@ public class ATM {
             try {
                 input = scan.nextInt();
                 if (input < 1 || input > 7) {
-                    System.out.println("Not a valid option, try again!");
+                    System.out.println(ConsoleUtility.RED + "Not a valid option, try again!" + ConsoleUtility.RESET);
                     input = scan.nextInt();
                 }
             } catch (Exception e) {
-                System.out.println("That is not an option, try again!");
+                System.out.println(ConsoleUtility.RED + "That is not an option, try again!" + ConsoleUtility.RESET);
                 scan.nextLine();
                 input = scan.nextInt();
             }
@@ -79,21 +80,21 @@ public class ATM {
                         int amount = scan.nextInt();
                         if (((amount % 5) == 0)){
                             if (checking.withdraw(amount)) {
-                                history.addTransaction("Withdraw of $" + amount + ": successful\nBalance: $" + checking.getBalance());
+                                history.addTransaction(ConsoleUtility.GREEN + "Withdraw of $" + amount + ": successful\nBalance: $" + checking.getBalance() + ConsoleUtility.RESET);
                                 System.out.println("\n\n-----Receipt-----");
-                                System.out.println("Withdrawal of $" + amount + " successful!\nCurrent balance: $" + checking.getBalance());
+                                System.out.println(ConsoleUtility.GREEN + "Withdrawal of $" + amount + " successful!\nCurrent balance: $" + checking.getBalance() + ConsoleUtility.RESET);
                                 System.out.println(history.getID());
                                 System.out.println("-----------------\n");
                             } else {
-                                history.addTransaction("Withdraw of $" + amount + ": unsuccessful\nBalance: $" + checking.getBalance());
+                                history.addTransaction(ConsoleUtility.RED + "Withdraw of $" + amount + ": unsuccessful\nBalance: $" + checking.getBalance() + ConsoleUtility.RESET);
                                 System.out.println("\n\n-----Receipt-----");
                                 System.out.println("Withdrawal of $" + amount + " unsuccessful\nCurrent balance: $" + checking.getBalance());
                                 System.out.println(history.getID());
                                 System.out.println("-----------------\n");
                             }
                         } else {
-                            System.out.println("Error: Indispensable Amount\nTransaction Failed\n");
-                            history.addTransaction("Withdraw of $" + amount + ": unsuccessful\nBalance: $" + checking.getBalance());
+                            System.out.println(ConsoleUtility.RED + "Error: Indispensable Amount\nTransaction Failed\n" + ConsoleUtility.RESET);
+                            history.addTransaction(ConsoleUtility.RED + "Withdraw of $" + amount + ": unsuccessful\nBalance: $" + checking.getBalance() + ConsoleUtility.RESET);
                             System.out.println("\n\n-----Receipt-----");
                             System.out.println("Withdrawal of $" + amount + " unsuccessful\nCurrent balance: $" + checking.getBalance());
                             System.out.println(history.getID());
@@ -104,31 +105,31 @@ public class ATM {
                         int amount = scan.nextInt();
                         if (((amount % 5) == 0)){
                             if (saving.withdraw(amount)) {
-                                history.addTransaction("Withdraw of $" + amount + ": successful\nBalance: $" + saving.getBalance());
+                                history.addTransaction(ConsoleUtility.GREEN + "Withdraw of $" + amount + ": successful\nBalance: $" + saving.getBalance() + ConsoleUtility.RESET);
                                 System.out.println("\n\n-----Receipt-----");
-                                System.out.println("Withdrawal of $" + amount + " successful!\nCurrent balance: $" + saving.getBalance());
+                                System.out.println(ConsoleUtility.GREEN + "Withdrawal of $" + amount + " successful!\nCurrent balance: $" + saving.getBalance() + ConsoleUtility.RESET);
                                 System.out.println(history.getID());
                                 System.out.println("-----------------\n");
                             } else {
-                                history.addTransaction("Withdraw of $" + amount + ": unsuccessful\nBalance: $" + saving.getBalance());
+                                history.addTransaction(ConsoleUtility.RED + "Withdraw of $" + amount + ": unsuccessful\nBalance: $" + saving.getBalance() + ConsoleUtility.RESET);
                                 System.out.println("\n\n-----Receipt-----");
-                                System.out.println("Withdrawal of $" + amount + " unsuccessful\nCurrent balance: $" + saving.getBalance());
+                                System.out.println(ConsoleUtility.RED + "Withdrawal of $" + amount + " unsuccessful\nCurrent balance: $" + saving.getBalance() + ConsoleUtility.RESET);
                                 System.out.println(history.getID());
                                 System.out.println("-----------------\n");
                             }
                         } else {
-                            System.out.println("Error: Indispensable Amount\nTransaction Failed\n");
-                            history.addTransaction("Withdraw of $" + amount + ": unsuccessful\nBalance: $" + saving.getBalance());
+                            System.out.println(ConsoleUtility.RED + "Error: Indispensable Amount\nTransaction Failed\n" + ConsoleUtility.RESET);
+                            history.addTransaction(ConsoleUtility.RED + "Withdraw of $" + amount + ": unsuccessful\nBalance: $" + saving.getBalance() + ConsoleUtility.RESET);
                             System.out.println("\n\n-----Receipt-----");
-                            System.out.println("Withdrawal of $" + amount + " unsuccessful\nCurrent balance: $" + saving.getBalance());
+                            System.out.println(ConsoleUtility.RED + "Withdrawal of $" + amount + " unsuccessful\nCurrent balance: $" + saving.getBalance() + ConsoleUtility.RESET);
                             System.out.println(history.getID());
                             System.out.println("-----------------\n");
                         }
                     } else {
-                        System.out.println("Error: Invalid Choice\nTransaction failed\n");
+                        System.out.println(ConsoleUtility.RED + "Error: Invalid Choice\nTransaction failed\n" + ConsoleUtility.RESET);
                     }
                 } else {
-                    System.out.println("Error: Incorrect Pin\n");
+                    System.out.println(ConsoleUtility.RED + "Error: Incorrect Pin\n" + ConsoleUtility.RESET);
                 }
             }
 
@@ -141,11 +142,11 @@ public class ATM {
                     try {
                         acc = scan.nextInt();
                         if (acc < 1 || acc > 2) {
-                            System.out.println("Not a valid option, try again!");
+                            System.out.println(ConsoleUtility.RED + "Not a valid option, try again!" + ConsoleUtility.RESET);
                             acc = scan.nextInt();
                         }
                     } catch (Exception e) {
-                        System.out.println("That is not an option, try again!");
+                        System.out.println(ConsoleUtility.RED + "That is not an option, try again!" + ConsoleUtility.RESET);
                         scan.nextLine();
                         acc = scan.nextInt();
                     }
@@ -153,21 +154,21 @@ public class ATM {
                     double dep = scan.nextDouble();
                     if (acc == 1) {
                         checking.deposit(dep);
-                        history.addTransaction("Deposit of $" + dep + ": successful\nBalance: $" + checking.getBalance());
+                        history.addTransaction(ConsoleUtility.GREEN + "Deposit of $" + dep + ": successful\nBalance: $" + checking.getBalance() + ConsoleUtility.RESET);
                         System.out.println("\n\n-----Receipt-----");
-                        System.out.println("Deposit of $" + dep + " successful!\nCurrent balance: $" + checking.getBalance());
+                        System.out.println(ConsoleUtility.GREEN + "Deposit of $" + dep + " successful!\nCurrent balance: $" + checking.getBalance() + ConsoleUtility.RESET);
                         System.out.println(history.getID());
                         System.out.println("-----------------\n");
                     } else if (acc == 2) {
                         saving.deposit(dep);
-                        history.addTransaction("Deposit of $" + dep + ": successful\nBalance: $" + saving.getBalance());
+                        history.addTransaction(ConsoleUtility.GREEN + "Deposit of $" + dep + ": successful\nBalance: $" + saving.getBalance() + ConsoleUtility.RESET);
                         System.out.println("\n\n-----Receipt-----");
-                        System.out.println("Deposit of $" + dep + " successful!\nCurrent balance: $" + saving.getBalance());
+                        System.out.println(ConsoleUtility.GREEN + "Deposit of $" + dep + " successful!\nCurrent balance: $" + saving.getBalance() + ConsoleUtility.RESET);
                         System.out.println(history.getID());
                         System.out.println("-----------------\n");
                     }
                 } else {
-                    System.out.println("Error: Incorrect Pin\n");
+                    System.out.println(ConsoleUtility.RED + "Error: Incorrect Pin\n" + ConsoleUtility.RESET);
                 }
             }
 
@@ -180,11 +181,11 @@ public class ATM {
                     try {
                         acc = scan.nextInt();
                         if (acc < 1 || acc > 2) {
-                            System.out.println("Not a valid option, try again!");
+                            System.out.println(ConsoleUtility.RED + "Not a valid option, try again!"  + ConsoleUtility.RESET);
                             acc = scan.nextInt();
                         }
                     } catch (Exception e) {
-                        System.out.println("That is not an option, try again!");
+                        System.out.println(ConsoleUtility.RED + "That is not an option, try again!" + ConsoleUtility.RESET);
                         scan.nextLine();
                         acc = scan.nextInt();
                     }
@@ -192,35 +193,35 @@ public class ATM {
                     double transferAmount = scan.nextDouble();
                     if  (acc == 1) {
                         if (checking.transfer(transferAmount, saving)) {
-                            history.addTransaction("Transfer of $" + transferAmount + ": successful\nChecking balance: $" + checking.getBalance() + "\nSavings balance: $" + saving.getBalance());
+                            history.addTransaction(ConsoleUtility.GREEN + "Transfer of $" + transferAmount + ": successful\nChecking balance: $" + checking.getBalance() + "\nSavings balance: $" + saving.getBalance() + ConsoleUtility.RESET);
                             System.out.println("\n\n-----Receipt-----");
-                            System.out.println("Transfer of $" + transferAmount + " successful!\nChecking balance: $" + checking.getBalance() + "\nSavings balance: $" + saving.getBalance());
+                            System.out.println(ConsoleUtility.GREEN + "Transfer of $" + transferAmount + " successful!\nChecking balance: $" + checking.getBalance() + "\nSavings balance: $" + saving.getBalance() + ConsoleUtility.RESET);
                             System.out.println(history.getID());
                             System.out.println("-----------------\n");
                         } else {
-                            history.addTransaction("Transfer of $" + transferAmount + ": unsuccessful\nChecking balance: $" + checking.getBalance() + "\nSavings balance: $" + saving.getBalance());
+                            history.addTransaction(ConsoleUtility.RED + "Transfer of $" + transferAmount + ": unsuccessful\nChecking balance: $" + checking.getBalance() + "\nSavings balance: $" + saving.getBalance() + ConsoleUtility.RESET);
                             System.out.println("\n\n-----Receipt-----");
-                            System.out.println("Transfer of $" + transferAmount + " unsuccessful!\nChecking balance: $" + checking.getBalance() + "\nSavings balance: $" + saving.getBalance());
+                            System.out.println(ConsoleUtility.RED + "Transfer of $" + transferAmount + " unsuccessful!\nChecking balance: $" + checking.getBalance() + "\nSavings balance: $" + saving.getBalance() + ConsoleUtility.RESET);
                             System.out.println(history.getID());
                             System.out.println("-----------------\n");
                         }
                     } else if (acc == 2) {
                         if (saving.transfer(transferAmount, checking)) {
-                            history.addTransaction("Transfer of $" + transferAmount + ": successful\nSavings balance: $" + saving.getBalance() + "\nChecking balance: $" + checking.getBalance());
+                            history.addTransaction(ConsoleUtility.GREEN + "Transfer of $" + transferAmount + ": successful\nSavings balance: $" + saving.getBalance() + "\nChecking balance: $" + checking.getBalance() + ConsoleUtility.RESET);
                             System.out.println("\n\n-----Receipt-----");
-                            System.out.println("Transfer of $" + transferAmount + " successful!\nSavings balance: $" + saving.getBalance() + "\nChecking balance: $" + checking.getBalance());
+                            System.out.println(ConsoleUtility.GREEN + "Transfer of $" + transferAmount + " successful!\nSavings balance: $" + saving.getBalance() + "\nChecking balance: $" + checking.getBalance() + ConsoleUtility.RESET);
                             System.out.println(history.getID());
                             System.out.println("-----------------\n");
                         } else {
-                            history.addTransaction("Transfer of $" + transferAmount + ": unsuccessful\nSavings balance: $" + saving.getBalance() + "\nChecking balance: $" + checking.getBalance());
+                            history.addTransaction(ConsoleUtility.RED + "Transfer of $" + transferAmount + ": unsuccessful\nSavings balance: $" + saving.getBalance() + "\nChecking balance: $" + checking.getBalance() + ConsoleUtility.RESET);
                             System.out.println("\n\n-----Receipt-----");
-                            System.out.println("Transfer of $" + transferAmount + " unsuccessful!\nSavings balance: $" + saving.getBalance() + "\nChecking balance: $" + checking.getBalance());
+                            System.out.println(ConsoleUtility.RED + "Transfer of $" + transferAmount + " unsuccessful!\nSavings balance: $" + saving.getBalance() + "\nChecking balance: $" + checking.getBalance() + ConsoleUtility.RESET);
                             System.out.println(history.getID());
                             System.out.println("-----------------\n");
                         }
                     }
                 } else {
-                    System.out.println("Error: Incorrect Pin\n");
+                    System.out.println(ConsoleUtility.RED + "Error: Incorrect Pin\n" + ConsoleUtility.RESET);
                 }
             }
 
@@ -238,15 +239,15 @@ public class ATM {
                             System.out.println("error");
                         }
                     }
-                    System.out.println("\nChecking balance: $" + checking.getBalance());
-                    System.out.println("Savings balance: $" + saving.getBalance());
+                    System.out.println("\nChecking balance: " + ConsoleUtility.GREEN + "$" + checking.getBalance() + ConsoleUtility.RESET);
+                    System.out.println("Savings balance: " + ConsoleUtility.GREEN + "$" + saving.getBalance() + ConsoleUtility.RESET);
                     history.addTransactionB("Retrieved Balances: Successful");
                     System.out.println("\n\n-----Receipt-----");
-                    System.out.println("Retrieved Balances: Successful");
+                    System.out.println(ConsoleUtility.GREEN + "Retrieved Balances: Successful" + ConsoleUtility.RESET);
                     System.out.println(history.getID());
                     System.out.println("-----------------\n");
                 } else {
-                    System.out.println("Error: Incorrect Pin\n");
+                    System.out.println(ConsoleUtility.RED + "Error: Incorrect Pin\n" + ConsoleUtility.RESET);
                 }
             }
 
@@ -265,14 +266,14 @@ public class ATM {
                         }
                     }
                     System.out.println();
-                    history.addTransactionB("Retrieved Transaction History: Successful");
+                    history.addTransactionB(ConsoleUtility.GREEN + "Retrieved Transaction History: Successful" + ConsoleUtility.RESET);
                     history.printTransactions();
                     System.out.println("\n\n-----Receipt-----");
-                    System.out.println("Retrieved Transaction History: Successful");
+                    System.out.println(ConsoleUtility.GREEN + "Retrieved Transaction History: Successful" + ConsoleUtility.RESET);
                     System.out.println(history.getID());
                     System.out.println("-----------------\n");
                 } else {
-                    System.out.println("Error: Incorrect Pin\n");
+                    System.out.println(ConsoleUtility.RED + "Error: Incorrect Pin\n" + ConsoleUtility.RESET);
                 }
             }
 
@@ -293,17 +294,17 @@ public class ATM {
                             System.out.println("error");
                         }
                     }
-                    history.addTransactionB("Changed Pin: Successful");
+                    history.addTransactionB(ConsoleUtility.GREEN + "Changed Pin: Successful" + ConsoleUtility.RESET);
                     System.out.println("\n\n-----Receipt-----");
-                    System.out.println("Changed Pin: Successful");
+                    System.out.println(ConsoleUtility.GREEN + "Changed Pin: Successful" + ConsoleUtility.RESET);
                     System.out.println(history.getID());
                     System.out.println("-----------------\n");
                 } else {
-                    System.out.println("Error: Incorrect Pin\n");
+                    System.out.println(ConsoleUtility.RED + "Error: Incorrect Pin\n" + ConsoleUtility.RESET);
                 }
             }
 
-            System.out.println("Thank you for using the ATM, come again!");
+            System.out.println("Thank you for using the ATM, come again!`");
 
         }
     }
